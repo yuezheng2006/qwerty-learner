@@ -1,0 +1,138 @@
+/* 主题CSS变量 - 会在运行时通过JavaScript动态设置 */
+:root {
+  /* 主色调 */
+  --color-primary: #8b5cf6;
+  --color-primary-hover: #7c3aed;
+  --color-primary-light: #ddd6fe;
+
+  /* 状态色 */
+  --color-success: #10b981;
+  --color-success-light: #d1fae5;
+  --color-warning: #f59e0b;
+  --color-warning-light: #fef3c7;
+  --color-error: #ef4444;
+  --color-error-light: #fee2e2;
+
+  /* 背景色 */
+  --color-background: #fafafa;
+  --color-surface: #ffffff;
+  --color-card: #ffffff;
+
+  /* 文字色 */
+  --color-text: #1f2937;
+  --color-text-secondary: #6b7280;
+  --color-text-light: #9ca3af;
+
+  /* 边框色 */
+  --color-border: #e5e7eb;
+  --color-border-light: #f3f4f6;
+
+  /* 特殊用途色 */
+  --color-correct: #10b981;
+  --color-incorrect: #ef4444;
+  --color-highlight: #fef3c7;
+
+  /* 渐变 */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-background: linear-gradient(135deg, #fafafa 0%, #f3f4f6 100%);
+}
+
+/* 应用主题变量到常用组件 */
+.theme-primary {
+  color: var(--color-primary);
+}
+
+.theme-bg-primary {
+  background-color: var(--color-primary);
+}
+
+.theme-bg-primary-light {
+  background-color: var(--color-primary-light);
+}
+
+.theme-border {
+  border-color: var(--color-border);
+}
+
+.theme-bg-card {
+  background-color: var(--color-card);
+}
+
+.theme-text {
+  color: var(--color-text);
+}
+
+.theme-text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.theme-correct {
+  color: var(--color-correct);
+}
+
+.theme-incorrect {
+  color: var(--color-incorrect);
+}
+
+.theme-highlight {
+  background-color: var(--color-highlight);
+}
+
+/* 按钮主题样式 */
+.btn-theme-primary {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-theme-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-theme-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-theme-outline:hover {
+  background-color: var(--color-primary-light);
+}
+
+/* 卡片主题样式 */
+.card-theme {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 输入框主题样式 */
+.input-theme {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: 8px 12px;
+  border-radius: 6px;
+  outline: none;
+}
+
+.input-theme:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary-light);
+}
+
+/* 动画效果 */
+.theme-transition {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

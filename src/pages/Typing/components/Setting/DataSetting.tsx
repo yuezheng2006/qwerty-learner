@@ -1,3 +1,4 @@
+import DictImportManager from './DictImportManager'
 import styles from './index.module.css'
 import type { ExportProgress, ImportProgress } from '@/utils/db/data-export'
 import { exportDatabase, importDatabase } from '@/utils/db/data-export'
@@ -119,6 +120,8 @@ export default function DataSetting() {
               导入数据
             </button>
           </div>
+
+          <DictImportManager />
         </div>
       </ScrollArea.Viewport>
       <ScrollArea.Scrollbar className="flex touch-none select-none bg-transparent " orientation="vertical"></ScrollArea.Scrollbar>

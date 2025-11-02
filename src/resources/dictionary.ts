@@ -1,6 +1,35 @@
 import type { Dictionary, DictionaryResource } from '@/typings/index'
 import { calcChapterCount } from '@/utils'
 
+// 获取自定义词典
+const getCustomDicts = (): DictionaryResource[] => {
+  if (typeof window === 'undefined') return []
+
+  try {
+    const saved = localStorage.getItem('customDicts')
+    if (!saved) return []
+
+    const customDicts = JSON.parse(saved)
+    if (!Array.isArray(customDicts)) return []
+
+    return customDicts.map((dict: any) => ({
+      id: dict.id,
+      name: dict.name,
+      description: `自定义词典 - ${dict.words.length} 个单词`,
+      category: '自定义词典',
+      tags: ['用户导入'],
+      url: `custom://${dict.id}`,
+      length: dict.words.length,
+      language: 'en',
+      languageCategory: 'en',
+      customData: dict.words,
+    }))
+  } catch (error) {
+    console.error('加载自定义词典失败:', error)
+    return []
+  }
+}
+
 // 中国考试
 const chinaExam: DictionaryResource[] = [
   {
@@ -4113,6 +4142,7 @@ export const dictionaryResources: DictionaryResource[] = [
   ...germanExam,
   ...kazakhHapinDicts,
   ...indonesianDicts,
+  ...getCustomDicts(),
 
   // {
   //   id: 'zhtest',

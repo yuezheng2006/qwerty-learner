@@ -1,11 +1,13 @@
 import { TypingContext, TypingStateActionType } from '../../store'
 import AnalysisButton from '../AnalysisButton'
+import DictImportButton from '../DictImportButton'
 import ErrorBookButton from '../ErrorBookButton'
 import HandPositionIllustration from '../HandPositionIllustration'
 import LoopWordSwitcher from '../LoopWordSwitcher'
 import Setting from '../Setting'
 import SoundSwitcher from '../SoundSwitcher'
 import WordDictationSwitcher from '../WordDictationSwitcher'
+import ThemeSelector from '@/components/ThemeSelector'
 import Tooltip from '@/components/Tooltip'
 import { isOpenDarkModeAtom } from '@/store'
 import { CTRL } from '@/utils'
@@ -42,6 +44,14 @@ export default function Switcher() {
 
   return (
     <div className="flex items-center justify-center gap-2">
+      <Tooltip content="切换主题">
+        <ThemeSelector />
+      </Tooltip>
+
+      <Tooltip content="导入自定义词典">
+        <DictImportButton />
+      </Tooltip>
+
       <Tooltip content="音效设置">
         <SoundSwitcher />
       </Tooltip>
@@ -67,9 +77,9 @@ export default function Switcher() {
         </button>
       </Tooltip>
 
-      <Tooltip content="错题本">
+      {/* <Tooltip content="错题本">
         <ErrorBookButton />
-      </Tooltip>
+      </Tooltip> */}
 
       <Tooltip className="h-7 w-7" content="查看数据统计">
         <AnalysisButton />

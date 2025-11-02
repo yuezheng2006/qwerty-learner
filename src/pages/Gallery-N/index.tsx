@@ -1,5 +1,5 @@
 import DictionaryGroup from './CategoryDicts'
-import DictRequest from './DictRequest'
+// import DictRequest from './DictRequest'  // 暂时不使用
 import { LanguageTabSwitcher } from './LanguageTabSwitcher'
 import Layout from '@/components/Layout'
 import { dictionaries } from '@/resources/dictionary'
@@ -69,7 +69,7 @@ export default function GalleryPage() {
             <div className="flex h-full flex-col overflow-y-auto">
               <div className="flex h-20 w-full items-center justify-between pb-6 pr-20">
                 <LanguageTabSwitcher />
-                <DictRequest />
+                {/* <DictRequest /> */} {/* 暂时不使用 */}
               </div>
               <ScrollArea.Root className="flex-1 overflow-y-auto">
                 <ScrollArea.Viewport className="h-full w-full ">

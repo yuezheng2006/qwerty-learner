@@ -16,13 +16,14 @@ import type { ReviewRecord } from '@/utils/db/record'
 import { atom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
 
-export const currentDictIdAtom = atomWithStorage('currentDict', 'cet4')
+export const currentThemeAtom = atomWithStorage('currentTheme', 'sakura-campus')
+export const currentDictIdAtom = atomWithStorage('currentDict', 'san1')
 export const currentDictInfoAtom = atom<Dictionary>((get) => {
   const id = get(currentDictIdAtom)
   let dict = idDictionaryMap[id]
-  // 如果 dict 不存在，则返回 cet4. Typing 中会检查 DictId 是否存在，如果不存在则会重置为 cet4
+  // 如果 dict 不存在，则返回 san1. Typing 中会检查 DictId 是否存在，如果不存在则会重置为 san1
   if (!dict) {
-    dict = idDictionaryMap.cet4
+    dict = idDictionaryMap.san1
   }
   return dict
 })

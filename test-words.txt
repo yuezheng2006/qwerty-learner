@@ -1,0 +1,5 @@
+hello	你好	həˈloʊ	həˈləʊ
+world	世界	wɜːrld	wɜːld
+apple	苹果	ˈæpəl	ˈæpəl
+banana	香蕉	bəˈnænə	bəˈnɑːnə
+orange	橙子	ˈɔːrɪndʒ	ˈɒrɪndʒ

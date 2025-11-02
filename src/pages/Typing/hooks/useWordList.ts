@@ -25,7 +25,7 @@ export function useWordList(): UseWordListResult {
     setCurrentChapter(0)
   }
 
-  const isFirstChapter = !isReviewMode && currentDictInfo.id === 'cet4' && currentChapter === 0
+  const isFirstChapter = false // 移除硬编码的特殊逻辑，直接使用词典内容
   const { data: wordList, error, isLoading } = useSWR(currentDictInfo.url, wordListFetcher)
 
   const words: WordWithIndex[] = useMemo(() => {

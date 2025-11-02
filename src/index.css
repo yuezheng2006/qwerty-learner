@@ -1,3 +1,4 @@
+@import './styles/theme.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,7 +9,7 @@ body {
     'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #faf9ff;
+  background-color: var(--color-background);
   @apply transition-colors duration-300;
   user-select: none;
 }
