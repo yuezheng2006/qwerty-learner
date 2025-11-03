@@ -4,7 +4,6 @@ import { useContext, useEffect, useState } from 'react'
 export default function Progress({ className }: { className?: string }) {
   // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
   const { state } = useContext(TypingContext)!
-  const [progress, setProgress] = useState(0)
   const [displayProgress, setDisplayProgress] = useState(0)
 
   // 计算当前阶段（用于渐变色和光效）
@@ -26,7 +25,6 @@ export default function Progress({ className }: { className?: string }) {
 
   useEffect(() => {
     const newProgress = Math.floor((state.chapterData.index / state.chapterData.words.length) * 100)
-    setProgress(newProgress)
 
     // 使用 requestAnimationFrame 实现平滑过渡
     let frameId: number
@@ -45,6 +43,7 @@ export default function Progress({ className }: { className?: string }) {
 
     frameId = requestAnimationFrame(animate)
     return () => cancelAnimationFrame(frameId)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.chapterData.index, state.chapterData.words.length])
 
   const shadowIntensity = getShadowIntensity(displayProgress)
