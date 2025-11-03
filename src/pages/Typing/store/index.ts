@@ -62,7 +62,10 @@ export enum TypingStateActionType {
 }
 
 export type TypingStateAction =
-  | { type: TypingStateActionType.SETUP_CHAPTER; payload: { words: WordWithIndex[]; shouldShuffle: boolean; initialIndex?: number } }
+  | {
+      type: TypingStateActionType.SETUP_CHAPTER
+      payload: { words: WordWithIndex[]; shouldShuffle: boolean; initialIndex?: number; restoreProgress?: any }
+    }
   | { type: TypingStateActionType.SET_IS_SKIP; payload: boolean }
   | { type: TypingStateActionType.SET_IS_TYPING; payload: boolean }
   | { type: TypingStateActionType.TOGGLE_IS_TYPING }
@@ -101,6 +104,32 @@ export const typingReducer = (state: TypingState, action: TypingStateAction) => 
       newState.chapterData.index = initialIndex
       newState.chapterData.words = words
       newState.chapterData.userInputLogs = words.map((_, index) => ({ ...structuredClone(initialUserInputLog), index }))
+
+      // 如果提供了恢复进度信息，恢复完整进度
+      if (action.payload.restoreProgress) {
+        const progress = action.payload.restoreProgress
+        newState.chapterData.index = progress.wordIndex
+        newState.chapterData.wordCount = progress.wordCount
+        newState.chapterData.correctCount = progress.correctCount
+        newState.chapterData.wrongCount = progress.wrongCount
+        newState.chapterData.wordRecordIds = progress.wordRecordIds || []
+        newState.timerData = progress.timerData || newState.timerData
+
+        // 恢复用户输入记录（需要匹配索引）
+        if (progress.userInputLogs && progress.userInputLogs.length === words.length) {
+          newState.chapterData.userInputLogs = progress.userInputLogs.map((log: any, index: number) => ({
+            ...structuredClone(initialUserInputLog),
+            ...log,
+            index,
+          }))
+        }
+
+        // 如果有进度，设置为可继续输入状态（但如果已经完成则不设置）
+        if (progress.wordIndex < words.length && progress.wordCount > 0) {
+          // 不自动开始，让用户按任意键开始
+          // newState.isTyping = false
+        }
+      }
 
       return newState
     }

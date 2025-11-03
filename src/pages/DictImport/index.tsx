@@ -1,6 +1,7 @@
 import { exampleWords, llmWords } from './dictExamples'
 import Layout from '@/components/Layout'
 import { currentDictIdAtom } from '@/store'
+import type { Word } from '@/typings'
 import { saveAs } from 'file-saver'
 import { useAtom } from 'jotai'
 import { useCallback, useEffect, useState } from 'react'
@@ -16,13 +17,6 @@ interface CustomDict {
   chapterLength: number
   words: Word[]
   createdAt: string
-}
-
-interface Word {
-  name: string
-  trans: string[]
-  usphone?: string
-  ukphone?: string
 }
 
 export default function DictImportPage() {

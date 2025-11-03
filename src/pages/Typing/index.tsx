@@ -7,6 +7,7 @@ import StartButton from './components/StartButton'
 import Switcher from './components/Switcher'
 import WordList from './components/WordList'
 import WordPanel from './components/WordPanel'
+import { useChapterProgress } from './hooks/useChapterProgress'
 import { useConfetti } from './hooks/useConfetti'
 import { useWordList } from './hooks/useWordList'
 import { TypingContext, TypingStateActionType, initialState, typingReducer } from './store'
@@ -20,7 +21,7 @@ import { useSaveChapterRecord } from '@/utils/db'
 import { useMixPanelChapterLogUploader } from '@/utils/mixpanel'
 import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import type React from 'react'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState, useRef } from 'react'
 import { useImmerReducer } from 'use-immer'
 
 const App: React.FC = () => {
@@ -29,13 +30,20 @@ const App: React.FC = () => {
   const { words } = useWordList()
 
   const [currentDictId, setCurrentDictId] = useAtom(currentDictIdAtom)
-  const setCurrentChapter = useSetAtom(currentChapterAtom)
+  const [currentChapter, setCurrentChapter] = useAtom(currentChapterAtom)
   const randomConfig = useAtomValue(randomConfigAtom)
   const chapterLogUploader = useMixPanelChapterLogUploader(state)
   const saveChapterRecord = useSaveChapterRecord()
 
   const reviewModeInfo = useAtomValue(reviewModeInfoAtom)
   const isReviewMode = useAtomValue(isReviewModeAtom)
+
+  // 进度保存和恢复
+  const { loadProgress, clearProgress } = useChapterProgress(state, dispatch)
+  const [progressRestored, setProgressRestored] = useState(false)
+  // 使用 null 而不是 undefined，避免首次渲染时误判为"切换"
+  const prevChapterRef = useRef<number | null>(null)
+  const prevDictIdRef = useRef<string | null>(null)
 
   useEffect(() => {
     // 检测用户设备
@@ -57,6 +65,27 @@ const App: React.FC = () => {
       return
     }
   }, [currentDictId, setCurrentChapter, setCurrentDictId])
+
+  // 当章节或字典切换时清除旧进度
+  useEffect(() => {
+    // 首次渲染时初始化 ref，不清除进度
+    if (prevChapterRef.current === null || prevDictIdRef.current === null) {
+      prevChapterRef.current = currentChapter
+      prevDictIdRef.current = currentDictId
+      return
+    }
+
+    // 只有在章节或字典真正改变时才清除进度
+    if (prevChapterRef.current !== currentChapter || prevDictIdRef.current !== currentDictId) {
+      console.log('🗑️ 字典或章节切换，清除旧进度:', {
+        prev: { chapter: prevChapterRef.current, dictId: prevDictIdRef.current },
+        current: { chapter: currentChapter, dictId: currentDictId },
+      })
+      clearProgress()
+      prevChapterRef.current = currentChapter
+      prevDictIdRef.current = currentDictId
+    }
+  }, [currentChapter, currentDictId, clearProgress])
 
   const skipWord = useCallback(() => {
     dispatch({ type: TypingStateActionType.SKIP_WORD })
@@ -92,13 +121,65 @@ const App: React.FC = () => {
   }, [state.isTyping, isLoading, dispatch])
 
   useEffect(() => {
-    if (words !== undefined) {
-      const initialIndex = isReviewMode && reviewModeInfo.reviewRecord?.index ? reviewModeInfo.reviewRecord.index : 0
+    if (words !== undefined && words.length > 0) {
+      // 尝试恢复保存的进度
+      console.log('🔍 检查恢复进度:', { currentDictId, currentChapter, wordsLength: words.length })
+      const savedProgress = loadProgress()
+      console.log('📦 加载的进度:', savedProgress)
+
+      let initialIndex = 0
+      let restoreProgressData = undefined
+
+      if (savedProgress && savedProgress.wordIndex < words.length) {
+        // 有保存的进度，恢复它
+        console.log('🔄 恢复进度:', savedProgress)
+        initialIndex = savedProgress.wordIndex
+        restoreProgressData = savedProgress
+      } else {
+        if (savedProgress) {
+          // 进度存在但不匹配（可能是索引超出范围，或字典/章节不匹配）
+          console.log('⚠️ 进度存在但不匹配:', {
+            savedWordIndex: savedProgress.wordIndex,
+            wordsLength: words.length,
+            savedDictId: savedProgress.dictId,
+            currentDictId,
+            savedChapter: savedProgress.chapter,
+            currentChapter,
+          })
+          // 如果进度不匹配当前字典/章节，清除它（这些进度属于其他字典/章节）
+          // 注意：这里不匹配是因为 loadProgress 已经检查过了，所以这里应该是索引超出范围的情况
+          if (savedProgress.dictId !== currentDictId || savedProgress.chapter !== currentChapter) {
+            console.log('🗑️ 清除不匹配的旧进度')
+            clearProgress()
+          }
+        }
+        if (isReviewMode && reviewModeInfo.reviewRecord?.index) {
+          // 复习模式使用复习记录的索引
+          initialIndex = reviewModeInfo.reviewRecord.index
+        }
+      }
 
       dispatch({
         type: TypingStateActionType.SETUP_CHAPTER,
-        payload: { words, shouldShuffle: randomConfig.isOpen, initialIndex },
+        payload: {
+          words,
+          shouldShuffle: restoreProgressData ? false : randomConfig.isOpen,
+          initialIndex,
+          restoreProgress: restoreProgressData,
+        },
       })
+
+      // 如果恢复了进度，显示提示
+      if (restoreProgressData) {
+        console.log('✅ 进度恢复成功，将显示提示')
+        setProgressRestored(true)
+        // 注意：不在这里清除进度，保持进度直到章节完成或切换
+        // 这样多次刷新都能恢复同一进度
+        // 3秒后隐藏提示
+        setTimeout(() => {
+          setProgressRestored(false)
+        }, 3000)
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [words])
@@ -108,6 +189,8 @@ const App: React.FC = () => {
     if (state.isFinished && !state.isSavingRecord) {
       chapterLogUploader()
       saveChapterRecord(state)
+      // 清除保存的进度
+      clearProgress()
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -130,6 +213,11 @@ const App: React.FC = () => {
     <TypingContext.Provider value={{ state: state, dispatch }}>
       {state.isFinished && <DonateCard />}
       {state.isFinished && <ResultScreen />}
+      {progressRestored && (
+        <div className="fixed left-1/2 top-4 z-50 -translate-x-1/2 transform rounded-lg bg-green-500 px-4 py-2 text-white shadow-lg">
+          ✅ 已恢复上次进度，可以继续练习
+        </div>
+      )}
       <Layout>
         <Header>
           <DictChapterButton />
