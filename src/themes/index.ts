@@ -270,6 +270,15 @@ export const rainbowCandyTheme: Theme = {
   },
 }
 
+// 默认主题集合
+export const themes: Theme[] = [
+  rainbowCampusTheme,
+  sakuraCampusTheme,
+  oceanCampusTheme,
+  sunflowerCampusTheme,
+  cottonCandyTheme,
+  rainbowCandyTheme,
+]
 // 默认使用彩虹校园主题
 export const defaultTheme = rainbowCampusTheme
 
