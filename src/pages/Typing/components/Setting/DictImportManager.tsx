@@ -140,7 +140,7 @@ export default function DictImportManager() {
   }
 
   // 使用自定义词典
-  const useDict = (dictId: string) => {
+  const handleUseDict = (dictId: string) => {
     setCurrentDictId(dictId)
   }
 
@@ -246,7 +246,9 @@ export default function DictImportManager() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <button
-                    onClick={() => useDict(dict.id)}
+                    onClick={() => {
+                      handleUseDict(dict.id)
+                    }}
                     className="rounded bg-indigo-600 px-3 py-1 text-xs text-white transition-colors hover:bg-indigo-700"
                   >
                     使用
