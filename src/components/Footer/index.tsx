@@ -1,6 +1,6 @@
-import { DonatingCard } from '../DonatingCard'
-import { StickerButton } from '../DonatingCard/components/StickerButton'
-import redBookCode from '@/assets/redBook-code.jpg'
+// import { DonatingCard } from '../DonatingCard'
+// import { StickerButton } from '../DonatingCard/components/StickerButton'
+// import redBookCode from '@/assets/redBook-code.jpg'
 import InfoPanel from '@/components/InfoPanel'
 import Tooltip from '@/components/Tooltip'
 import { infoPanelStateAtom } from '@/store'
@@ -10,20 +10,19 @@ import { useAtom } from 'jotai'
 import type React from 'react'
 import { useCallback } from 'react'
 import IconMail from '~icons/material-symbols/mail'
-import IconCoffee2 from '~icons/mdi/coffee'
-import IconXiaoHongShu from '~icons/my-icons/xiaohongshu'
+// import IconCoffee2 from '~icons/mdi/coffee'
+// import IconXiaoHongShu from '~icons/my-icons/xiaohongshu'
 import IconTwitter from '~icons/ri/twitter-fill'
 // import IconGithub from '~icons/simple-icons/github'
 import IconVisualstudiocode from '~icons/simple-icons/visualstudiocode'
 import IconWechat2 from '~icons/simple-icons/wechat'
 import IconWechat from '~icons/tabler/brand-wechat'
-import IconCoffee from '~icons/tabler/coffee'
+// import IconCoffee from '~icons/tabler/coffee'
 import IconTerminal2 from '~icons/tabler/terminal-2'
 import IconFlagChina from '~icons/twemoji/flag-china'
 
 const Footer: React.FC = () => {
   const [infoPanelState, setInfoPanelState] = useAtom(infoPanelStateAtom)
-  const navigate = useNavigate()
 
   const handleOpenInfoPanel = useCallback(
     (modalType: InfoPanelType) => {
@@ -42,7 +41,7 @@ const Footer: React.FC = () => {
 
   return (
     <>
-      <InfoPanel
+      {/* <InfoPanel
         openState={infoPanelState.donate}
         title="Buy us a coffee"
         icon={IconCoffee}
@@ -70,7 +69,7 @@ const Footer: React.FC = () => {
         </div>
 
         <DonatingCard />
-      </InfoPanel>
+      </InfoPanel> */}
 
       <InfoPanel
         openState={infoPanelState.vsc}
@@ -120,7 +119,7 @@ const Footer: React.FC = () => {
         <br />
       </InfoPanel>
 
-      <InfoPanel
+      {/* <InfoPanel
         openState={infoPanelState.redBook}
         title="小红书社群"
         icon={IconXiaoHongShu}
@@ -141,16 +140,16 @@ const Footer: React.FC = () => {
         </p>
         <br />
         <img className="ml-1 w-5/12 " src={redBookCode} alt="redBook" />
-        <p className="text-sm text-gray-500 dark:text-gray-400">Tips: 从小红书“我”的左上角点击 三 找到 扫一扫</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">Tips: 从小红书"我"的左上角点击 三 找到 扫一扫</p>
         <br />
-      </InfoPanel>
+      </InfoPanel> */}
 
       <footer className="mb-1 mt-4 flex w-full items-center justify-center gap-2.5 text-sm ease-in" onClick={(e) => e.currentTarget.blur()}>
         {/* <a href="https://github.com/Kaiyiwing/qwerty-learner" target="_blank" rel="noreferrer" aria-label="前往 GitHub 项目主页">
           <IconGithub fontSize={15} className="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100" />
         </a> */}
 
-        <button
+        {/* <button
           className="cursor-pointer"
           type="button"
           onClick={(e) => {
@@ -160,7 +159,7 @@ const Footer: React.FC = () => {
           aria-label="加入我们的小红书社群"
         >
           <IconXiaoHongShu fontSize={14} className="text-gray-500 hover:text-red-500 dark:text-gray-400 dark:hover:text-red-500" />
-        </button>
+        </button> */}
 
         <button
           className="cursor-pointer focus:outline-none"
@@ -177,7 +176,7 @@ const Footer: React.FC = () => {
         <a href="https://twitter.com/real_kai42" target="_blank" title="x" rel="noreferrer">
           <IconTwitter fontSize={16} className="text-gray-500 hover:text-[#1DA1F2] dark:text-gray-400 dark:hover:text-[#1DA1F2]" />
         </a>
-        <button
+        {/* <button
           className="cursor-pointer focus:outline-none "
           type="button"
           onClick={(e) => {
@@ -187,7 +186,7 @@ const Footer: React.FC = () => {
           aria-label="考虑捐赠我们"
         >
           <IconCoffee2 fontSize={16} className="text-gray-500 hover:text-amber-500 dark:text-gray-400 dark:hover:text-amber-500" />
-        </button>
+        </button> */}
 
         <button
           className="cursor-pointer focus:outline-none"
@@ -217,7 +216,7 @@ const Footer: React.FC = () => {
           </a>
         </Tooltip>
 
-        <button
+        {/* <button
           className="cursor-pointer text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
           type="button"
           onClick={(e) => {
@@ -226,7 +225,7 @@ const Footer: React.FC = () => {
           }}
         >
           @ Qwerty Learner
-        </button>
+        </button> */}
 
         <a
           className="cursor-pointer text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"

@@ -23,8 +23,8 @@ import { useCallback, useContext, useEffect, useMemo } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { useNavigate } from 'react-router-dom'
 import IexportWords from '~icons/icon-park-outline/excel'
-import IconCoffee from '~icons/mdi/coffee'
-import IconXiaoHongShu from '~icons/my-icons/xiaohongshu'
+// import IconCoffee from '~icons/mdi/coffee'
+// import IconXiaoHongShu from '~icons/my-icons/xiaohongshu'
 // import IconGithub from '~icons/simple-icons/github'
 import IconWechat from '~icons/simple-icons/wechat'
 import IconX from '~icons/tabler/x'
@@ -249,7 +249,7 @@ const ResultScreen = () => {
                     <IexportWords fontSize={18} className="cursor-pointer text-gray-500" onClick={exportWords}></IexportWords>
                   </>
                 )}
-                <IconXiaoHongShu
+                {/* <IconXiaoHongShu
                   fontSize={15}
                   className="cursor-pointer text-gray-500 hover:text-red-500 focus:outline-none"
                   onClick={(e) => {
@@ -268,7 +268,7 @@ const ResultScreen = () => {
                   title="捐赠我们的项目"
                 >
                   <IconCoffee fontSize={17} className={`text-gray-500 hover:text-amber-500  focus:outline-none ${styles.imgShake}`} />
-                </button>
+                </button> */}
 
                 {/* <a href="https://github.com/Kaiyiwing/qwerty-learner" target="_blank" rel="noreferrer" className="leading-[0px]">
                   <IconGithub fontSize={16} className="text-gray-500 hover:text-green-800 focus:outline-none" />
