@@ -1,7 +1,8 @@
 import { currentThemeAtom } from '@/store'
-import { themes, type Theme } from '@/themes'
+import { type Theme, themes } from '@/themes'
 import { useAtom } from 'jotai'
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import type React from 'react';
+import { createContext, useContext, useEffect, useState } from 'react'
 
 interface ThemeContextType {
   theme: Theme
