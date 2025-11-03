@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Qwerty Learner is a typing practice application designed for keyboard workers to improve English typing muscle memory while memorizing vocabulary. It combines English word memorization with keyboard input training through various dictionaries and practice modes.
+Keyboard English is a typing practice application designed for keyboard workers to improve English typing muscle memory while memorizing vocabulary. It combines English word memorization with keyboard input training through various dictionaries and practice modes.
 
 ## Common Development Commands
 

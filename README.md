@@ -3,7 +3,7 @@
 </div>
 
 <h1 align="center">
-  Qwerty Learner
+  Keyboard English
 </h1>
 
 <p align="center">
@@ -241,7 +241,7 @@ GitHub Pages: <https://realkai42.github.io/qwerty-learner/>
 
 目前项目处于开发初期，新功能正在持续添加中，如果你对软件有任何功能与建议，欢迎在 Issues 中提出
 
-项目的进展与未来计划在 [Issue](https://github.com/Realkai42/qwerty-learner/issues/42) 中详细介绍，内部也包含对未来功能的意见征询等，如果对 Qwerty Learner 的未来感兴趣，欢迎参与讨论。
+项目的进展与未来计划在 [Issue](https://github.com/Realkai42/qwerty-learner/issues/42) 中详细介绍，内部也包含对未来功能的意见征询等，如果对 Keyboard English 的未来感兴趣，欢迎参与讨论。
 
 如果你也喜欢本软件的设计思想，欢迎提交 pr，非常感谢你对我们的支持！
 <br />
@@ -261,7 +261,7 @@ GitHub Pages: <https://realkai42.github.io/qwerty-learner/>
 
 ## ☕️ Buy us a coffe
 
-非常感谢大家使用 Qwerty Learner, 目前该网站由三个人用业余时间在维护，我们希望在未来购买独立的域名(目前使用 vercel 部署)，并购买服务器以方便国内用户访问与云同步存储数据。
+非常感谢大家使用 Keyboard English, 目前该网站由三个人用业余时间在维护，我们希望在未来购买独立的域名(目前使用 vercel 部署)，并购买服务器以方便国内用户访问与云同步存储数据。
 
 如果您喜欢我们软件，非常感谢您对我们未来的支持!
 

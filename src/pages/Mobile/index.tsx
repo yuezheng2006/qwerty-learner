@@ -68,9 +68,9 @@ const MobilePage: React.FC = () => {
     <div className="flex w-screen flex-col bg-white lg:mx-auto lg:max-w-7xl">
       <header className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between border-b border-gray-100/50 bg-white/80 px-6 py-6 backdrop-blur-xl lg:px-12">
         {/* <div className="flex items-center">
-          <img src={logo} className="mr-4 h-10 w-10 lg:h-12 lg:w-12" alt="Qwerty Learner Logo" />
+          <img src={logo} className="mr-4 h-10 w-10 lg:h-12 lg:w-12" alt="Keyboard English Logo" />
           <div className="flex flex-col">
-            <h1 className="text-lg font-semibold tracking-tight text-indigo-500 lg:text-xl">Qwerty Learner</h1>
+            <h1 className="text-lg font-semibold tracking-tight text-indigo-500 lg:text-xl">Keyboard English</h1>
             <span className="text-xs font-normal text-gray-500">官方网站</span>
           </div>
         </div> */}
@@ -125,7 +125,7 @@ const MobilePage: React.FC = () => {
             </li>
             <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
               <span className="font-medium text-gray-900" itemProp="name">
-                Qwerty Learner 官网
+                Keyboard English 官网
               </span>
               <meta itemProp="position" content="2" />
             </li>
@@ -205,18 +205,18 @@ const MobilePage: React.FC = () => {
               >
                 <img
                   src={hotImg}
-                  alt="Qwerty Learner 英语学习软件热门词库界面 - CET 四六级雅思托福词汇在线练习"
+                  alt="Keyboard English 英语学习软件热门词库界面 - CET 四六级雅思托福词汇在线练习"
                   className="w-full flex-shrink-0"
                 />
                 <img
                   src={directoryImg}
-                  alt="Qwerty Learner 免费英语学习软件词库目录 - 支持程序员技术英语学习"
+                  alt="Keyboard English 免费英语学习软件词库目录 - 支持程序员技术英语学习"
                   className="w-full flex-shrink-0"
                 />
-                <img src={indexImg} alt="Qwerty Learner 英语打字练习软件主界面 - 在线英语单词记忆训练" className="w-full flex-shrink-0" />
+                <img src={indexImg} alt="Keyboard English 英语打字练习软件主界面 - 在线英语单词记忆训练" className="w-full flex-shrink-0" />
                 <img
                   src={hotImg}
-                  alt="Qwerty Learner 英语学习软件热门词库界面 - CET 四六级雅思托福词汇在线练习"
+                  alt="Keyboard English 英语学习软件热门词库界面 - CET 四六级雅思托福词汇在线练习"
                   className="w-full flex-shrink-0"
                 />
               </div>
@@ -236,9 +236,9 @@ const MobilePage: React.FC = () => {
 
         <section className="mt-24 bg-gray-50/30 px-6 py-24 lg:mt-32 lg:px-24" itemScope itemType="https://schema.org/Product">
           <div className="mx-auto max-w-7xl">
-            <meta itemProp="name" content="Qwerty Learner" />
+            <meta itemProp="name" content="Keyboard English" />
             <meta itemProp="description" content="在打字中记忆单词，在练习中巩固英语！支持多种词库和程序员专用API练习" />
-            <meta itemProp="brand" content="Qwerty Learner" />
+            <meta itemProp="brand" content="Keyboard English" />
 
             {/* Offers Schema */}
             <div itemProp="offers" itemScope itemType="https://schema.org/Offer">
@@ -353,7 +353,7 @@ const MobilePage: React.FC = () => {
                 <img
                   className="w-full object-contain"
                   src={detail[activeIndex].img}
-                  alt={`Qwerty Learner ${detail[activeIndex].title} 功能展示 - 英语学习软件特色功能截图`}
+                  alt={`Keyboard English ${detail[activeIndex].title} 功能展示 - 英语学习软件特色功能截图`}
                 />
               </div>
             </div>
