@@ -16,13 +16,14 @@ const getCustomDicts = (): DictionaryResource[] => {
       id: dict.id,
       name: dict.name,
       description: `自定义词典 - ${dict.words.length} 个单词`,
-      category: '自定义词典',
+      category: dict.category || '自定义词典',
       tags: ['用户导入'],
       url: `custom://${dict.id}`,
       length: dict.words.length,
       language: 'en',
       languageCategory: 'en',
       customData: dict.words,
+      chapterLength: dict.chapterLength || 20,
     }))
   } catch (error) {
     console.error('加载自定义词典失败:', error)
@@ -4166,7 +4167,9 @@ export const dictionaryResources: DictionaryResource[] = [
 
 export const dictionaries: Dictionary[] = dictionaryResources.map((resource) => ({
   ...resource,
-  chapterCount: calcChapterCount(resource.length),
+  chapterCount: (resource as any).chapterLength
+    ? Math.ceil(resource.length / (resource as any).chapterLength)
+    : calcChapterCount(resource.length),
 }))
 
 /**

@@ -30,12 +30,29 @@ export function useWordList(): UseWordListResult {
 
   const words: WordWithIndex[] = useMemo(() => {
     let newWords: Word[]
+    // 获取当前章节的单词长度（支持自定义词典）
+    let chapterLen = CHAPTER_LENGTH
+    if (currentDictInfo.url.startsWith('custom://')) {
+      try {
+        const saved = localStorage.getItem('customDicts')
+        if (saved) {
+          const customDicts = JSON.parse(saved)
+          const dict = customDicts.find((d: any) => d.id === currentDictInfo.url.replace('custom://', ''))
+          if (dict && dict.chapterLength) {
+            chapterLen = dict.chapterLength
+          }
+        }
+      } catch (error) {
+        console.error('获取自定义词典章节长度失败:', error)
+      }
+    }
+
     if (isFirstChapter) {
       newWords = firstChapter
     } else if (isReviewMode) {
       newWords = reviewRecord?.words ?? []
     } else if (wordList) {
-      newWords = wordList.slice(currentChapter * CHAPTER_LENGTH, (currentChapter + 1) * CHAPTER_LENGTH)
+      newWords = wordList.slice(currentChapter * chapterLen, (currentChapter + 1) * chapterLen)
     } else {
       newWords = []
     }
@@ -56,7 +73,7 @@ export function useWordList(): UseWordListResult {
         trans,
       }
     })
-  }, [isFirstChapter, isReviewMode, wordList, reviewRecord?.words, currentChapter])
+  }, [isFirstChapter, isReviewMode, wordList, reviewRecord?.words, currentChapter, currentDictInfo.url])
 
   return { words, isLoading, error }
 }
