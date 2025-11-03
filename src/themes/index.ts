@@ -206,7 +206,69 @@ export const sunflowerCampusTheme: Theme = {
 }
 
 // 默认主题集合
-export const themes: Theme[] = [rainbowCampusTheme, sakuraCampusTheme, oceanCampusTheme, sunflowerCampusTheme]
+export const cottonCandyTheme: Theme = {
+  name: 'cotton-candy',
+  displayName: '🎀 奶油棉花糖',
+  colors: {
+    primary: '#FF9FCC',
+    primaryHover: '#FF85C0',
+    primaryLight: '#FFCCE6',
+    success: '#7FE8A8',
+    successLight: '#C8F7DC',
+    warning: '#FFD699',
+    warningLight: '#FFE8CC',
+    error: '#FF9B9B',
+    errorLight: '#FFCCCC',
+    background: '#FFF8FC',
+    surface: '#FFFFFF',
+    card: '#FFFBFE',
+    text: '#6B5B7A',
+    textSecondary: '#9B8BA8',
+    textLight: '#C4B5D0',
+    border: '#FFD6E8',
+    borderLight: '#FFF0F6',
+    correct: '#7FE8A8',
+    incorrect: '#FF9B9B',
+    highlight: '#FFE8B6',
+  },
+  gradients: {
+    primary: 'linear-gradient(135deg, #FF9FCC 0%, #FFB3D9 100%)',
+    success: 'linear-gradient(135deg, #7FE8A8 0%, #4FC97C 100%)',
+    background: 'linear-gradient(135deg, #fff8fc 0%, #ffe6f0 100%)',
+  },
+}
+
+export const rainbowCandyTheme: Theme = {
+  name: 'rainbow-candy',
+  displayName: '🌈 彩虹糖果',
+  colors: {
+    primary: '#FF6B9D',
+    primaryHover: '#FF5588',
+    primaryLight: '#FFB3D9',
+    success: '#1DD1A1',
+    successLight: '#A8EDEA',
+    warning: '#FFD93D',
+    warningLight: '#FFF5B8',
+    error: '#FF6B6B',
+    errorLight: '#FFB3B3',
+    background: '#FFF5E1',
+    surface: '#FFFFFF',
+    card: '#FFFCF2',
+    text: '#FF6B9D',
+    textSecondary: '#FF8AB3',
+    textLight: '#FFADD2',
+    border: '#FFD1DC',
+    borderLight: '#FFE8F0',
+    correct: '#1DD1A1',
+    incorrect: '#FF6B6B',
+    highlight: '#FFD93D',
+  },
+  gradients: {
+    primary: 'linear-gradient(135deg, #FF6B9D 0%, #FF85B3 100%)',
+    success: 'linear-gradient(135deg, #1DD1A1 0%, #10AC84 100%)',
+    background: 'linear-gradient(135deg, #fff5e1 0%, #ffe8cc 100%)',
+  },
+}
 
 // 默认使用彩虹校园主题
 export const defaultTheme = rainbowCampusTheme
