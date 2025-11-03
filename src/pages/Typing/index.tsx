@@ -46,18 +46,7 @@ const App: React.FC = () => {
   const prevDictIdRef = useRef<string | null>(null)
 
   useEffect(() => {
-    // 检测用户设备
-    if (!IsDesktop()) {
-      setTimeout(() => {
-        alert(
-          ' Qwerty Learner 是为桌面端优化的英语打字学习工具，目前暂未适配移动端，希望您使用桌面端浏览器访问。如您使用的是 Ipad 等平板电脑设备，可以使用外接键盘使用本软件。',
-        )
-      }, 500)
-    }
-  }, [])
-
-  // 在组件挂载和currentDictId改变时，检查当前字典是否存在，如果不存在，则将其重置为默认值
-  useEffect(() => {
+    // 在组件挂载和currentDictId改变时，检查当前字典是否存在，如果不存在，则将其重置为默认值
     const id = currentDictId
     if (!(id in idDictionaryMap)) {
       setCurrentDictId('cet4')
