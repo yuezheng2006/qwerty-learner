@@ -1,7 +1,7 @@
 import type { TypingState } from '../store/type'
 import { currentChapterAtom, currentDictIdAtom, isReviewModeAtom } from '@/store'
 import { useAtomValue } from 'jotai'
-import { useEffect, useCallback } from 'react'
+import { useCallback, useEffect } from 'react'
 
 const PROGRESS_STORAGE_KEY = 'typing_chapter_progress'
 
