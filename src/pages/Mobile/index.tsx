@@ -154,9 +154,9 @@ const MobilePage: React.FC = () => {
 
             {/* 主标题 */}
             <h1 className="mb-8 text-5xl font-bold leading-[1.1] tracking-tight text-gray-900 sm:text-6xl lg:text-7xl" itemProp="name">
-              为<span className="text-indigo-500">键盘工作者</span>
+              边<span className="text-indigo-500">打字边学</span>
               <br />
-              设计的<span className="text-indigo-500">英语学习软件</span>
+              <span className="text-indigo-500">英语</span>软件
             </h1>
 
             {/* 副标题 */}

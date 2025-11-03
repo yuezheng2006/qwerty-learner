@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  为键盘工作者设计的单词记忆与英语肌肉记忆锻炼软件
+  边打字边学英语，单词记忆与肌肉记忆完美结合的学习软件
 </p>
 
 <p align="center" style="display: flex; justify-content: center; gap: 10px;">
