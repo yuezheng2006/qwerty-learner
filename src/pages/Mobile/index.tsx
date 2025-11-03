@@ -166,7 +166,7 @@ const MobilePage: React.FC = () => {
 
             {/* 功能标签 */}
             <div className="mb-16 flex flex-wrap justify-center gap-3" itemProp="featureList">
-              {['英语单词记忆训练', '国际音标发音练习', 'CET 四六级词库', '程序员专用词汇', '免费在线学习' /*, '完全开源'*/].map(
+              {['英语单词记忆训练', '国际音标发音练习', 'CET 四六级词库', '程序员专用词汇', '免费在线学习', '完全开源'].map(
                 (item, index) => (
                   <span
                     key={index}
@@ -675,10 +675,10 @@ const MobilePage: React.FC = () => {
 
             <div className="mt-16 text-center">
               <div className="mb-8">
-                {/* <h4 className="mb-4 text-2xl font-bold text-white">社区驱动，持续更新</h4>
-                <p className="mx-auto max-w-2xl text-gray-300">
-                  我们的 API 词库主要依赖于社区贡献，更多编程语言的 API 正在逐步添加中，欢迎参与贡献
-                </p> */}
+                <h4 className="mb-4 text-2xl font-bold text-gray-900">社区共建，持续增长</h4>
+                <p className="mx-auto max-w-2xl text-gray-600">
+                  我们的词库由活跃的开源社区持续贡献和维护，如果您需要特定的词库，欢迎在 GitHub 提出 Issue
+                </p>
               </div>
               <a
                 href="https://eng.cyber101.cc/"
@@ -834,10 +834,10 @@ const MobilePage: React.FC = () => {
 
             <div className="mt-16 text-center">
               <div className="mb-8">
-                {/* <h4 className="mb-4 text-2xl font-bold text-white">社区驱动，持续更新</h4>
+                <h4 className="mb-4 text-2xl font-bold text-white">社区驱动，持续更新</h4>
                 <p className="mx-auto max-w-2xl text-gray-300">
                   我们的 API 词库主要依赖于社区贡献，更多编程语言的 API 正在逐步添加中，欢迎参与贡献
-                </p> */}
+                </p>
               </div>
               <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                 <a
@@ -955,7 +955,6 @@ const MobilePage: React.FC = () => {
 
             {/* 详细荣誉列表 */}
             <div className="grid gap-6 lg:grid-cols-2">
-              {/* 开源社区认可 - 已注释
               <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg sm:p-8">
                 <h3 className="mb-6 text-xl font-bold text-gray-900 sm:text-2xl">开源社区认可</h3>
                 <div className="space-y-4">
@@ -996,7 +995,59 @@ const MobilePage: React.FC = () => {
                   </div>
                 </div>
               </div>
-              */}
+
+              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg sm:p-8">
+                <h3 className="mb-6 text-xl font-bold text-gray-900 sm:text-2xl">媒体平台推荐</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 rounded-lg border border-gray-100 bg-gray-50 p-3 sm:gap-4 sm:p-4">
+                    <div className="flex-shrink-0 rounded-full bg-red-100 p-2">
+                      <svg className="h-5 w-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                          fillRule="evenodd"
+                          d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-900">V2EX 全站热搜项目</div>
+                      <div className="text-sm text-gray-600">技术社区高度关注和讨论</div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 rounded-lg border border-gray-100 bg-gray-50 p-3 sm:gap-4 sm:p-4">
+                    <div className="flex-shrink-0 rounded-full bg-blue-100 p-2">
+                      <svg className="h-5 w-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                          fillRule="evenodd"
+                          d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-900">少数派首页推荐</div>
+                      <div className="text-sm text-gray-600">优质应用推荐平台认可</div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 rounded-lg border border-gray-100 bg-gray-50 p-3 sm:gap-4 sm:p-4">
+                    <div className="flex-shrink-0 rounded-full bg-gray-100 p-2">
+                      <svg className="h-5 w-5 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                          fillRule="evenodd"
+                          d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-900">Gitee 全站推荐项目</div>
+                      <div className="text-sm text-gray-600">国内领先代码托管平台推荐</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* 用户数据统计 */}
