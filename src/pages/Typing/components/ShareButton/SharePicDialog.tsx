@@ -179,7 +179,7 @@ export default function SharePicDialog({ showState, setShowState, randomChoose }
             </div>
             {/* <div className="mb-3 ml-5 mt-auto">
               <div className="text-xs">Qwerty.kaiyi.cool</div>
-              <div className="mt-1 text-xs font-normal text-gray-400">为键盘工作者设计的单词与肌肉记忆锻炼软件</div>
+              <div className="mt-1 text-xs font-normal text-gray-400">边打字边学英语，单词记忆与肌肉记忆完美结合</div>
             </div> */}
             <div className="absolute -right-9 bottom-10 ">
               <img src={shareImage} className="w-48" width={186} height={122} />

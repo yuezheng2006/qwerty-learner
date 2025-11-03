@@ -2,7 +2,6 @@ import Loading from './components/Loading'
 import { ThemeProvider } from './components/ThemeProvider'
 import './index.css'
 import { ErrorBook } from './pages/ErrorBook'
-import MobilePage from './pages/Mobile'
 import TypingPage from './pages/Typing'
 import { isOpenDarkModeAtom } from '@/store'
 import { Analytics } from '@vercel/analytics/react'
@@ -33,40 +32,18 @@ function Root() {
     darkMode ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark')
   }, [darkMode])
 
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600)
-
-  useEffect(() => {
-    const handleResize = () => {
-      const isMobile = window.innerWidth <= 600
-      if (!isMobile) {
-        window.location.href = '/'
-      }
-      setIsMobile(isMobile)
-    }
-
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
   return (
     <React.StrictMode>
       <BrowserRouter basename={REACT_APP_DEPLOY_ENV === 'pages' ? '/qwerty-learner' : ''}>
         <ThemeProvider>
           <Suspense fallback={<Loading />}>
             <Routes>
-              {isMobile ? (
-                <Route path="/*" element={<Navigate to="/mobile" />} />
-              ) : (
-                <>
-                  <Route index element={<TypingPage />} />
-                  <Route path="/gallery" element={<GalleryPage />} />
-                  <Route path="/analysis" element={<AnalysisPage />} />
-                  <Route path="/error-book" element={<ErrorBook />} />
-                  <Route path="/dict-import" element={<DictImportPage />} />
-                  <Route path="/*" element={<Navigate to="/" />} />
-                </>
-              )}
-              <Route path="/mobile" element={<MobilePage />} />
+              <Route index element={<TypingPage />} />
+              <Route path="/gallery" element={<GalleryPage />} />
+              <Route path="/analysis" element={<AnalysisPage />} />
+              <Route path="/error-book" element={<ErrorBook />} />
+              <Route path="/dict-import" element={<DictImportPage />} />
+              <Route path="/*" element={<Navigate to="/" />} />
             </Routes>
           </Suspense>
         </ThemeProvider>

@@ -237,7 +237,7 @@ const MobilePage: React.FC = () => {
         <section className="mt-24 bg-gray-50/30 px-6 py-24 lg:mt-32 lg:px-24" itemScope itemType="https://schema.org/Product">
           <div className="mx-auto max-w-7xl">
             <meta itemProp="name" content="Qwerty Learner" />
-            <meta itemProp="description" content="为键盘工作者设计的英语学习软件，结合打字练习与单词记忆" />
+            <meta itemProp="description" content="在打字中记忆单词，在练习中巩固英语！支持多种词库和程序员专用API练习" />
             <meta itemProp="brand" content="Qwerty Learner" />
 
             {/* Offers Schema */}
@@ -326,7 +326,7 @@ const MobilePage: React.FC = () => {
               核心功能，<span className="text-indigo-500">专业设计</span>
             </h2>
             <p className="mx-auto mb-16 max-w-3xl text-center text-xl font-light leading-relaxed text-gray-600">
-              每一个细节都为了更好的在线英语学习体验而精心打磨，适合程序员、学生、上班族等所有键盘工作者快速提升英语打字速度和英语单词记忆能力
+              每一个细节都为了更好的在线英语学习体验而精心打磨，无论是程序员、学生还是上班族，都能在打字中快速提升英语水平和单词记忆能力
             </p>
 
             <div className="lg:grid lg:grid-cols-2 lg:gap-12">
@@ -424,7 +424,7 @@ const MobilePage: React.FC = () => {
                   </div>
                   <h3 className="mb-3 text-lg font-semibold text-gray-900 sm:text-xl">英语肌肉记忆训练</h3>
                   <p className="text-sm leading-relaxed text-gray-600 sm:text-base">
-                    专为键盘工作者设计，将英语单词记忆与键盘输入的肌肉记忆锻炼相结合，在背诵单词的同时巩固打字技能。
+                    通过打字练习与单词记忆的结合，同时锻炼英语输入的肌肉记忆，在背诵单词的同时巩固打字技能，让学英语变得更有效率。
                   </p>
                 </div>
 
